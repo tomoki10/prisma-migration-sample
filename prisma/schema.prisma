@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// add model
+model prisma_test {
+  id         Int      @id @default(autoincrement())
+  timestamp  DateTime
+  hogehoge   String
+  name       String?
+  created_at DateTime @default(now())
+  updated_at DateTime @default(now())
+}
